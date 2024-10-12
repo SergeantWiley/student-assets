@@ -24,5 +24,14 @@ water.y = 200 # Does the same thing as self.y in the Water Custom Class
 sand.scaleX = 2 # Does the same thing as self.scalex in the Water Custom Class
 sand.scaleX = 3 # Does the same thing as self.scaleY in the Water Custom Class
 ```
-
-
+For navigation of a character, within the custom classes game loop:
+```python
+if key_is_pressed("w"):
+    self.y += 5
+if key_is_pressed("s"):
+    self.y -= 5
+if key_is_pressed("a"):
+    self.x -= 5
+if key_is_pressed("d"):
+    self.x += 5
+```

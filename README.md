@@ -35,3 +35,46 @@ if key_is_pressed("a"):
 if key_is_pressed("d"):
     self.x += 5
 ```
+
+## Managing multiple sprites
+
+When there are multiple sprites for example in a grid, it makes modifying any one of them extremely difficult. 
+
+When calling in a new sprite, add it to a sprite list. 
+
+```python
+self.waterList = []
+for i in range(-10,10):
+    for j in range(-10,10):
+        self.water = Water()
+        self.water.x = i*30
+        self.water.y = j*30
+        self.waterList.append(self.water)
+```
+
+Then to modify any or specific sprite, use the index method with lists. Within the game loop
+```python
+import random
+
+temp = random.randint(0,100)
+posx = random.randint(0,19)
+posy = random.randint(0,19)
+randomWater = random.randint(0,19*19)
+self.waterList[randomWater].tempature = temp
+```
+Within the water class
+```python
+self.sprite = sprite("Water.png")
+self.scaleX = 0.2
+self.scaleY = 0.2
+self.tempature = 25
+```
+To modify any data within the sprite itself such as image, use the sprite loop to update image based on tempature for example
+```python
+if self.tempature < 50:
+    self.sprite = sprite("Water.png")
+if self.tempature >= 50:
+    self.sprite = sprite("ehs.png")
+```
+
+
